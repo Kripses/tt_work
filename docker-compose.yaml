@@ -21,15 +21,16 @@ services:
 
   database:
     image: postgres:16.2-alpine3.19
-    user: root
+    container_name: database
     restart: always
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+      - ./postgres_data:/var/lib/postgresql/data_db
     environment:
-      - DB_HOST=${DB_HOST}
+#      - DB_HOST=${DB_HOST}
       - POSTGRES_DB=${DB_NAME}
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASS}
+#      - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
       - ${POSTGRES_PORT:-5432}:5432
 
@@ -49,9 +50,9 @@ services:
       - 'worker'
       - '-l'
       - 'info'
-    links:
-      - redis
-      - app
+#    links:
+#      - redis
+#      - app
     env_file:
       - .env
     restart: always
