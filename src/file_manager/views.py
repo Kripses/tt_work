@@ -7,6 +7,9 @@ from file_manager.tasks import file_processing
 
 
 class FileCreateView(CreateAPIView):
+    """
+    api view класс для загрузки и последующей обработки файли
+    """
     queryset = File.objects.all()
     serializer_class = FileSerializer
 
@@ -24,6 +27,9 @@ class FileCreateView(CreateAPIView):
 
 
 class FileListView(ListAPIView):
+    """
+    api view класс возвращающий все файлы и данные о них
+    """
     queryset = File.objects.all()
     serializer_class = FileSerializer
 
