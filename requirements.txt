@@ -4,5 +4,5 @@ Django==5.0.2
 django-celery-results==2.5.1
 djangorestframework==3.14.0
 docker==7.0.0
-redis==5.0.1
 psycopg2==2.9.9
+redis==5.0.1
